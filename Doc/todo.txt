@@ -1,0 +1,39 @@
+*-Only one changelog
+*-Try to get rid of Delphi mode and custom options
+*-Get VersionInfo in
+*   -Test on Windows
+*-Test ods files
+*   -Make ods template (+protect content) -> xlt works fine with LO
+*-Add some info to Data_RW about reading Excel files or remove Windows related stuff
+*-Confirm single-threaded operation works technically (step through stuff)
+*   -Logging of all options
+*-Check this one F_cum
+*-Clean up files
+*-Translate and correct changelog
+
+*-Confirm result s-t are correct/same as Delphi windows version
+*    -Seems to be a difference between Linux and Windows Lazarus version
+*    -Win64: example PPFD: 4.42212267672539
+*    -Win32/Linux: example PPFD: 4.45138180557396
+*-Organise data files
+*-Complete changelog
+
+*-Update about info
+-Upload to github
+    -how does this work for the old exe files?
+    -can they be releases?
+-Make longer readme
+    -document floating point issue
+
+-Get multi-threaded to run
+    -or just remove it
+-Convert doc to odt?
+    -would need to fix all equations -> have to do that anyway
+    -or to markdown with mathjax, but that is even more work
+        -word->mathml->latex
+    -maybe just leave as is
+-Fix equations in doc to docx
+-What to do with results tab?
+*   -add graph again? -> No
+-Create GitHub release (Win+linux)
+

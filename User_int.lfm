@@ -1,0 +1,1062 @@
+object Form1: TForm1
+  Left = 914
+  Height = 521
+  Top = 407
+  Width = 841
+  Caption = 'StratiPHOLIAGE'
+  ClientHeight = 521
+  ClientWidth = 841
+  Color = clBtnFace
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  ShowHint = True
+  LCLVersion = '1.6.2.0'
+  object Label31: TLabel
+    Left = 432
+    Height = 14
+    Top = 90
+    Width = 26
+    Caption = 'Beta1'
+    ParentColor = False
+  end
+  object Label32: TLabel
+    Left = 432
+    Height = 14
+    Top = 114
+    Width = 26
+    Caption = 'Beta2'
+    ParentColor = False
+  end
+  object Label33: TLabel
+    Left = 432
+    Height = 14
+    Top = 138
+    Width = 26
+    Caption = 'Beta3'
+    ParentColor = False
+  end
+  object PageControl1: TPageControl
+    Left = 8
+    Height = 505
+    Top = 8
+    Width = 825
+    ActivePage = TabSheet1
+    TabIndex = 0
+    TabOrder = 0
+    object TabSheet1: TTabSheet
+      Caption = 'Open'
+      ClientHeight = 477
+      ClientWidth = 815
+      object Label1: TLabel
+        Left = 24
+        Height = 14
+        Top = 144
+        Width = 41
+        Caption = 'Reading:'
+        ParentColor = False
+      end
+      object Label3: TLabel
+        Left = 264
+        Height = 14
+        Top = 144
+        Width = 92
+        Caption = 'Number of Subplots'
+        ParentColor = False
+      end
+      object Label4: TLabel
+        Left = 264
+        Height = 14
+        Top = 176
+        Width = 102
+        Caption = 'Number of Individuals'
+        ParentColor = False
+      end
+      object Label2: TLabel
+        Left = 264
+        Height = 14
+        Top = 112
+        Width = 85
+        Caption = 'Number of Species'
+        ParentColor = False
+      end
+      object Label5: TLabel
+        Left = 264
+        Height = 14
+        Top = 72
+        Width = 20
+        Caption = 'Plot'
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object Label12: TLabel
+        Left = 264
+        Height = 14
+        Top = 32
+        Width = 45
+        Caption = 'Filename'
+        Font.CharSet = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object Edit1: TEdit
+        Left = 328
+        Height = 31
+        Top = 24
+        Width = 393
+        ReadOnly = True
+        TabOrder = 0
+      end
+      object FileOpenButton: TButton
+        Left = 16
+        Height = 65
+        Top = 24
+        Width = 113
+        Caption = 'Open file'
+        OnClick = FileOpenButtonClick
+        TabOrder = 1
+      end
+      object DataMemo: TMemo
+        Left = 16
+        Height = 257
+        Top = 208
+        Width = 785
+        Lines.Strings = (
+          ''
+        )
+        ScrollBars = ssBoth
+        TabOrder = 2
+        WordWrap = False
+      end
+      object Edit2: TEdit
+        Left = 24
+        Height = 31
+        Top = 168
+        Width = 201
+        ReadOnly = True
+        TabOrder = 3
+        Text = 'Nothing'
+      end
+      object SubplotCountEdit: TEdit
+        Left = 384
+        Height = 31
+        Top = 136
+        Width = 121
+        ReadOnly = True
+        TabOrder = 4
+      end
+      object IndCountEdit: TEdit
+        Left = 384
+        Height = 31
+        Top = 168
+        Width = 121
+        ReadOnly = True
+        TabOrder = 5
+      end
+      object SpeciesCountEdit: TEdit
+        Left = 384
+        Height = 31
+        Top = 104
+        Width = 121
+        ReadOnly = True
+        TabOrder = 6
+      end
+      object PlotNameEdit: TEdit
+        Left = 328
+        Height = 31
+        Top = 64
+        Width = 177
+        ReadOnly = True
+        TabOrder = 7
+      end
+    end
+    object OptionSheet: TTabSheet
+      Caption = 'Model'
+      ClientHeight = 477
+      ClientWidth = 815
+      Enabled = False
+      ImageIndex = 1
+      object Label6: TLabel
+        Left = 16
+        Height = 14
+        Top = 208
+        Width = 35
+        Caption = 'Species'
+        ParentColor = False
+      end
+      object Label7: TLabel
+        Left = 240
+        Height = 14
+        Top = 208
+        Width = 42
+        Caption = 'Subplots'
+        ParentColor = False
+      end
+      object Label8: TLabel
+        Left = 464
+        Height = 14
+        Top = 208
+        Width = 52
+        Caption = 'Individuals'
+        ParentColor = False
+      end
+      object Label10: TLabel
+        Left = 16
+        Height = 14
+        Top = 8
+        Width = 67
+        Caption = 'Model options'
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object Label11: TLabel
+        Left = 16
+        Height = 14
+        Top = 115
+        Width = 120
+        Caption = 'Date  .  .  .  .  .  .  .  .  .  .  .  .  .  .'
+        ParentColor = False
+      end
+      object Bevel1: TBevel
+        Left = 16
+        Height = 1
+        Top = 24
+        Width = 81
+      end
+      object Bevel2: TBevel
+        Left = 16
+        Height = 1
+        Top = 384
+        Width = 777
+      end
+      object Bevel3: TBevel
+        Left = 16
+        Height = 1
+        Top = 184
+        Width = 321
+      end
+      object Label13: TLabel
+        Left = 16
+        Height = 14
+        Top = 190
+        Width = 163
+        Caption = 'Individual to calculate and display'
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object Label14: TLabel
+        Left = 16
+        Height = 14
+        Top = 432
+        Width = 41
+        Caption = 'Progress'
+        ParentColor = False
+      end
+      object Bevel4: TBevel
+        Left = 16
+        Height = 1
+        Top = 206
+        Width = 201
+      end
+      object Label15: TLabel
+        Left = 16
+        Height = 14
+        Top = 400
+        Width = 105
+        Caption = 'Run model for all data'
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object Bevel6: TBevel
+        Left = 16
+        Height = 1
+        Top = 416
+        Width = 129
+      end
+      object Label19: TLabel
+        Left = 248
+        Height = 14
+        Top = 91
+        Width = 79
+        Caption = 'micromol m-2 s-1'
+        ParentColor = False
+      end
+      object Bevel7: TBevel
+        Left = 472
+        Height = 57
+        Top = 8
+        Width = 337
+      end
+      object Bevel8: TBevel
+        Left = 336
+        Height = 81
+        Top = 88
+        Width = 1
+      end
+      object Bevel9: TBevel
+        Left = 16
+        Height = 1
+        Top = 80
+        Width = 321
+      end
+      object Label26: TLabel
+        Left = 560
+        Height = 14
+        Top = 392
+        Width = 185
+        Caption = 'Multithreaded execution (experimental!)'
+        ParentColor = False
+      end
+      object Label27: TLabel
+        Left = 568
+        Height = 14
+        Top = 408
+        Width = 182
+        Caption = '(for possible faster calculation process)'
+        ParentColor = False
+      end
+      object Bevel10: TBevel
+        Left = 536
+        Height = 81
+        Top = 392
+        Width = 1
+      end
+      object Label28: TLabel
+        Left = 560
+        Height = 14
+        Top = 442
+        Width = 38
+        Caption = 'Threads'
+        ParentColor = False
+      end
+      object Label29: TLabel
+        Left = 400
+        Height = 14
+        Top = 450
+        Width = 39
+        Caption = 'Runtime'
+        ParentColor = False
+      end
+      object Label30: TLabel
+        Left = 512
+        Height = 14
+        Top = 450
+        Width = 15
+        Caption = 'sec'
+        ParentColor = False
+      end
+      object Label44: TLabel
+        Left = 16
+        Height = 14
+        Top = 139
+        Width = 149
+        Caption = 'Night respiration factor  .  fRd =   '
+        ParentColor = False
+      end
+      object RunButton: TButton
+        Left = 240
+        Height = 41
+        Top = 433
+        Width = 105
+        Caption = 'Run'
+        OnClick = RunButtonClick
+        TabOrder = 0
+      end
+      object SpeciesListBox: TListBox
+        Left = 16
+        Height = 153
+        Top = 224
+        Width = 201
+        Enabled = False
+        ItemHeight = 0
+        OnClick = SpeciesListBoxClick
+        ScrollWidth = 199
+        TabOrder = 1
+        TopIndex = -1
+      end
+      object SubplotListBox: TListBox
+        Left = 240
+        Height = 153
+        Top = 224
+        Width = 201
+        Enabled = False
+        ItemHeight = 0
+        OnClick = SubplotListBoxClick
+        ScrollWidth = 199
+        TabOrder = 2
+        TopIndex = -1
+      end
+      object IndListBox: TListBox
+        Left = 464
+        Height = 153
+        Top = 224
+        Width = 201
+        ItemHeight = 0
+        OnClick = IndListBoxClick
+        ScrollWidth = 199
+        TabOrder = 3
+        TopIndex = -1
+      end
+      object CalcAlphaCheckBox: TCheckBox
+        Left = 16
+        Height = 23
+        Top = 56
+        Width = 190
+        Caption = 'Calculate individual''s alpha'
+        Checked = True
+        State = cbChecked
+        TabOrder = 4
+      end
+      object File_kCheckBox: TCheckBox
+        Left = 16
+        Height = 23
+        Hint = 'If checked, diffuse light extinction is calculated using the vegetation k value specified in the data file. #13 If unchecked, the vegetation''s extinction is entirely calculated, depending on LAI'
+        Top = 32
+        Width = 217
+        Caption = 'Use vegetation k from data file'
+        TabOrder = 5
+      end
+      object DateEdit: TEdit
+        Left = 176
+        Height = 19
+        Top = 112
+        Width = 49
+        Alignment = taRightJustify
+        AutoSize = False
+        ReadOnly = True
+        TabOrder = 6
+      end
+      object DateUpDown: TUpDown
+        Left = 225
+        Height = 19
+        Top = 112
+        Width = 16
+        Associate = DateEdit
+        Max = 366
+        Min = 0
+        Position = 0
+        TabOrder = 7
+        Wrap = False
+      end
+      object OvercastCheckBox: TCheckBox
+        Left = 16
+        Height = 23
+        Top = 88
+        Width = 197
+        Caption = 'Overcast day .  .  .  .   Idif ='
+        OnClick = OvercastCheckBoxClick
+        TabOrder = 8
+      end
+      object I_difEdit: TEdit
+        Left = 176
+        Height = 19
+        Top = 88
+        Width = 49
+        AutoSize = False
+        BidiMode = bdRightToLeft
+        Enabled = False
+        ParentBidiMode = False
+        TabOrder = 9
+      end
+      object I_difUpDown: TUpDown
+        Left = 225
+        Height = 19
+        Top = 88
+        Width = 16
+        Associate = I_difEdit
+        Enabled = False
+        Max = 5000
+        Min = 0
+        Position = 0
+        TabOrder = 10
+        Wrap = False
+      end
+      object GDayUpDown: TUpDown
+        Left = 785
+        Height = 19
+        Top = 16
+        Width = 16
+        Associate = GDayEdit
+        Max = 40
+        Min = 3
+        Position = 3
+        TabOrder = 11
+        Wrap = False
+      end
+      object GDayEdit: TLabeledEdit
+        Left = 752
+        Height = 19
+        Hint = 'Number of points to use for Gaussian integration over the day'
+        Top = 16
+        Width = 33
+        Alignment = taRightJustify
+        AutoSize = False
+        EditLabel.AnchorSideTop.Control = GDayEdit
+        EditLabel.AnchorSideTop.Side = asrCenter
+        EditLabel.AnchorSideRight.Control = GDayEdit
+        EditLabel.AnchorSideBottom.Control = GDayEdit
+        EditLabel.AnchorSideBottom.Side = asrBottom
+        EditLabel.Left = 495
+        EditLabel.Height = 14
+        EditLabel.Top = 18
+        EditLabel.Width = 254
+        EditLabel.Caption = 'Number of points for Gaussian integration over the day'
+        EditLabel.ParentColor = False
+        LabelPosition = lpLeft
+        ReadOnly = True
+        TabOrder = 12
+      end
+      object f_RdUpDown: TUpDown
+        Left = 225
+        Height = 19
+        Top = 136
+        Width = 16
+        Min = 0
+        OnClick = f_RdUpDownClick
+        Position = 1
+        TabOrder = 13
+        Wrap = False
+      end
+      object ProgressBar1: TProgressBar
+        Left = 16
+        Height = 24
+        Top = 448
+        Width = 201
+        Smooth = True
+        TabOrder = 14
+      end
+      object DisplayButton: TButton
+        Left = 688
+        Height = 25
+        Top = 352
+        Width = 81
+        Caption = 'Display'
+        OnClick = DisplayButtonClick
+        TabOrder = 15
+      end
+      object GLayerEdit: TLabeledEdit
+        Left = 752
+        Height = 19
+        Hint = 'Number of points to use for Gaussian integration over the layers'
+        Top = 40
+        Width = 33
+        Alignment = taRightJustify
+        AutoSize = False
+        EditLabel.AnchorSideTop.Control = GLayerEdit
+        EditLabel.AnchorSideTop.Side = asrCenter
+        EditLabel.AnchorSideRight.Control = GLayerEdit
+        EditLabel.AnchorSideBottom.Control = GLayerEdit
+        EditLabel.AnchorSideBottom.Side = asrBottom
+        EditLabel.Left = 484
+        EditLabel.Height = 14
+        EditLabel.Top = 42
+        EditLabel.Width = 265
+        EditLabel.Caption = 'Number of points for Gaussian integration over the layers'
+        EditLabel.ParentColor = False
+        LabelPosition = lpLeft
+        ReadOnly = True
+        TabOrder = 16
+      end
+      object GLayerUpDown: TUpDown
+        Left = 785
+        Height = 19
+        Top = 40
+        Width = 16
+        Associate = GLayerEdit
+        Max = 40
+        Min = 3
+        Position = 3
+        TabOrder = 17
+        Wrap = False
+      end
+      object RunMTButton: TButton
+        Left = 672
+        Height = 41
+        Hint = 'Using multiple threads for calculation presumably only has use on multicore or multiprocessor machines.'
+        Top = 432
+        Width = 139
+        Caption = 'Run Multithreaded'
+        OnClick = RunMTButtonClick
+        TabOrder = 18
+      end
+      object ThreadNoUpDown: TUpDown
+        Left = 649
+        Height = 19
+        Top = 440
+        Width = 17
+        Associate = ThreadNoEdit
+        Min = 1
+        Position = 10
+        TabOrder = 19
+        Wrap = False
+      end
+      object ThreadNoEdit: TEdit
+        Left = 608
+        Height = 19
+        Top = 440
+        Width = 41
+        Alignment = taRightJustify
+        AutoSize = False
+        ReadOnly = True
+        TabOrder = 20
+        Text = '10'
+      end
+      object RuntimeEdit: TEdit
+        Left = 448
+        Height = 19
+        Top = 448
+        Width = 57
+        Alignment = taRightJustify
+        AutoSize = False
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        ParentBidiMode = False
+        ParentFont = False
+        ReadOnly = True
+        TabOrder = 21
+      end
+      object f_RdEdit: TEdit
+        Left = 176
+        Height = 19
+        Top = 136
+        Width = 49
+        Alignment = taRightJustify
+        AutoSize = False
+        OnChange = f_RdEditChange
+        TabOrder = 22
+      end
+      object AngleOptsCheckBox: TCheckBox
+        Left = 352
+        Height = 23
+        Top = 72
+        Width = 267
+        Caption = 'Enable leaf and radiation angle options'
+        OnClick = AngleOptsCheckBoxClick
+        TabOrder = 23
+      end
+      object Panel1: TPanel
+        Left = 352
+        Height = 91
+        Top = 94
+        Width = 441
+        BevelOuter = bvLowered
+        ClientHeight = 91
+        ClientWidth = 441
+        TabOrder = 24
+        object Label23: TLabel
+          Left = 6
+          Height = 14
+          Top = 6
+          Width = 76
+          Caption = 'Average angle of'
+          Enabled = False
+          ParentColor = False
+        end
+        object Label24: TLabel
+          Left = 14
+          Height = 14
+          Top = 22
+          Width = 90
+          Caption = 'incoming radiation'
+          Enabled = False
+          ParentColor = False
+        end
+        object Label25: TLabel
+          Left = 14
+          Height = 14
+          Top = 38
+          Width = 71
+          Caption = 'per sky fraction'
+          Enabled = False
+          ParentColor = False
+        end
+        object Label40: TLabel
+          Left = 14
+          Height = 14
+          Top = 54
+          Width = 93
+          Caption = 'for both individuals '
+          Enabled = False
+          ParentColor = False
+        end
+        object Label41: TLabel
+          Left = 14
+          Height = 14
+          Top = 70
+          Width = 61
+          Caption = 'and subplots'
+          Enabled = False
+          ParentColor = False
+        end
+        object Bevel11: TBevel
+          Left = 214
+          Height = 73
+          Top = 6
+          Width = 1
+        end
+        object Label37: TLabel
+          Left = 230
+          Height = 14
+          Top = 6
+          Width = 76
+          Caption = 'Average angle of'
+          Enabled = False
+          ParentColor = False
+        end
+        object Label38: TLabel
+          Left = 238
+          Height = 14
+          Top = 22
+          Width = 64
+          Caption = 'leaves in each'
+          Enabled = False
+          ParentColor = False
+        end
+        object Label39: TLabel
+          Left = 238
+          Height = 14
+          Top = 38
+          Width = 84
+          Caption = 'leaf angle fraction'
+          Enabled = False
+          ParentColor = False
+        end
+        object Label42: TLabel
+          Left = 238
+          Height = 14
+          Top = 54
+          Width = 63
+          Caption = 'for all species'
+          Enabled = False
+          ParentColor = False
+        end
+        object Label43: TLabel
+          Left = 238
+          Height = 14
+          Top = 70
+          Width = 80
+          Caption = '(not for subplots)'
+          Enabled = False
+          ParentColor = False
+        end
+        object BS3UpDown: TUpDown
+          Left = 183
+          Height = 19
+          Top = 54
+          Width = 17
+          Associate = BS3Edit
+          Enabled = False
+          Max = 90
+          Min = 0
+          Position = 0
+          TabOrder = 0
+          Wrap = False
+        end
+        object BS2UpDown: TUpDown
+          Left = 183
+          Height = 19
+          Top = 30
+          Width = 17
+          Associate = BS2Edit
+          Enabled = False
+          Max = 90
+          Min = 0
+          Position = 0
+          TabOrder = 1
+          Wrap = False
+        end
+        object BS1UpDown: TUpDown
+          Left = 183
+          Height = 19
+          Top = 6
+          Width = 17
+          Associate = BS1Edit
+          Enabled = False
+          Max = 90
+          Min = 0
+          Position = 0
+          TabOrder = 2
+          Wrap = False
+        end
+        object BL3UpDown: TUpDown
+          Left = 415
+          Height = 19
+          Top = 54
+          Width = 17
+          Associate = BL3Edit
+          Enabled = False
+          Max = 90
+          Min = 0
+          Position = 0
+          TabOrder = 3
+          Wrap = False
+        end
+        object BL2UpDown: TUpDown
+          Left = 415
+          Height = 19
+          Top = 30
+          Width = 17
+          Associate = BL2Edit
+          Enabled = False
+          Max = 90
+          Min = 0
+          Position = 0
+          TabOrder = 4
+          Wrap = False
+        end
+        object BL1UpDown: TUpDown
+          Left = 415
+          Height = 19
+          Top = 6
+          Width = 17
+          Associate = BL1Edit
+          Enabled = False
+          Max = 90
+          Min = 0
+          Position = 0
+          TabOrder = 5
+          Wrap = False
+        end
+        object BS1Edit: TLabeledEdit
+          Left = 158
+          Height = 19
+          Top = 6
+          Width = 25
+          Alignment = taRightJustify
+          AutoSize = False
+          EditLabel.AnchorSideTop.Control = BS1Edit
+          EditLabel.AnchorSideTop.Side = asrCenter
+          EditLabel.AnchorSideRight.Control = BS1Edit
+          EditLabel.AnchorSideBottom.Control = BS1Edit
+          EditLabel.AnchorSideBottom.Side = asrBottom
+          EditLabel.Left = 117
+          EditLabel.Height = 14
+          EditLabel.Top = 8
+          EditLabel.Width = 38
+          EditLabel.Caption = 'Beta_S1'
+          EditLabel.ParentColor = False
+          Enabled = False
+          LabelPosition = lpLeft
+          ReadOnly = True
+          TabOrder = 6
+        end
+        object BS2Edit: TLabeledEdit
+          Left = 158
+          Height = 19
+          Top = 30
+          Width = 25
+          Alignment = taRightJustify
+          AutoSize = False
+          EditLabel.AnchorSideTop.Control = BS2Edit
+          EditLabel.AnchorSideTop.Side = asrCenter
+          EditLabel.AnchorSideRight.Control = BS2Edit
+          EditLabel.AnchorSideBottom.Control = BS2Edit
+          EditLabel.AnchorSideBottom.Side = asrBottom
+          EditLabel.Left = 117
+          EditLabel.Height = 14
+          EditLabel.Top = 32
+          EditLabel.Width = 38
+          EditLabel.Caption = 'Beta_S2'
+          EditLabel.ParentColor = False
+          Enabled = False
+          LabelPosition = lpLeft
+          ReadOnly = True
+          TabOrder = 7
+        end
+        object BS3Edit: TLabeledEdit
+          Left = 158
+          Height = 19
+          Top = 54
+          Width = 25
+          Alignment = taRightJustify
+          AutoSize = False
+          EditLabel.AnchorSideTop.Control = BS3Edit
+          EditLabel.AnchorSideTop.Side = asrCenter
+          EditLabel.AnchorSideRight.Control = BS3Edit
+          EditLabel.AnchorSideBottom.Control = BS3Edit
+          EditLabel.AnchorSideBottom.Side = asrBottom
+          EditLabel.Left = 117
+          EditLabel.Height = 14
+          EditLabel.Top = 56
+          EditLabel.Width = 38
+          EditLabel.Caption = 'Beta_S3'
+          EditLabel.ParentColor = False
+          Enabled = False
+          LabelPosition = lpLeft
+          ReadOnly = True
+          TabOrder = 8
+        end
+        object BL1Edit: TLabeledEdit
+          Left = 390
+          Height = 19
+          Top = 6
+          Width = 25
+          Alignment = taRightJustify
+          AutoSize = False
+          EditLabel.AnchorSideTop.Control = BL1Edit
+          EditLabel.AnchorSideTop.Side = asrCenter
+          EditLabel.AnchorSideRight.Control = BL1Edit
+          EditLabel.AnchorSideBottom.Control = BL1Edit
+          EditLabel.AnchorSideBottom.Side = asrBottom
+          EditLabel.Left = 350
+          EditLabel.Height = 14
+          EditLabel.Top = 8
+          EditLabel.Width = 37
+          EditLabel.Caption = 'Beta_L1'
+          EditLabel.ParentColor = False
+          Enabled = False
+          LabelPosition = lpLeft
+          ReadOnly = True
+          TabOrder = 9
+        end
+        object BL2Edit: TLabeledEdit
+          Left = 390
+          Height = 19
+          Top = 30
+          Width = 25
+          Alignment = taRightJustify
+          AutoSize = False
+          EditLabel.AnchorSideTop.Control = BL2Edit
+          EditLabel.AnchorSideTop.Side = asrCenter
+          EditLabel.AnchorSideRight.Control = BL2Edit
+          EditLabel.AnchorSideBottom.Control = BL2Edit
+          EditLabel.AnchorSideBottom.Side = asrBottom
+          EditLabel.Left = 350
+          EditLabel.Height = 14
+          EditLabel.Top = 32
+          EditLabel.Width = 37
+          EditLabel.Caption = 'Beta_L2'
+          EditLabel.ParentColor = False
+          Enabled = False
+          LabelPosition = lpLeft
+          ReadOnly = True
+          TabOrder = 10
+        end
+        object BL3Edit: TLabeledEdit
+          Left = 390
+          Height = 19
+          Top = 54
+          Width = 25
+          Alignment = taRightJustify
+          AutoSize = False
+          EditLabel.AnchorSideTop.Control = BL3Edit
+          EditLabel.AnchorSideTop.Side = asrCenter
+          EditLabel.AnchorSideRight.Control = BL3Edit
+          EditLabel.AnchorSideBottom.Control = BL3Edit
+          EditLabel.AnchorSideBottom.Side = asrBottom
+          EditLabel.Left = 350
+          EditLabel.Height = 14
+          EditLabel.Top = 56
+          EditLabel.Width = 37
+          EditLabel.Caption = 'Beta_L3'
+          EditLabel.ParentColor = False
+          Enabled = False
+          LabelPosition = lpLeft
+          ReadOnly = True
+          TabOrder = 11
+        end
+      end
+    end
+    object TabSheet3: TTabSheet
+      Caption = 'Results'
+      ClientHeight = 477
+      ClientWidth = 815
+      Enabled = False
+      ImageIndex = 2
+      object ResultMemo: TMemo
+        Left = 16
+        Height = 441
+        Top = 24
+        Width = 281
+        ScrollBars = ssVertical
+        TabOrder = 0
+      end
+    end
+    object TabSheet4: TTabSheet
+      Caption = 'Save'
+      ClientHeight = 477
+      ClientWidth = 815
+      Enabled = False
+      ImageIndex = 3
+      object Label9: TLabel
+        Left = 16
+        Height = 14
+        Top = 40
+        Width = 71
+        Caption = 'Output options'
+        ParentColor = False
+      end
+      object SaveButton: TButton
+        Left = 16
+        Height = 65
+        Top = 160
+        Width = 113
+        Caption = 'Write to file'
+        OnClick = SaveButtonClick
+        TabOrder = 0
+      end
+      object LightAbsOutCheckBox: TCheckBox
+        Left = 24
+        Height = 23
+        Top = 112
+        Width = 170
+        Caption = 'Light absorption details'
+        Checked = True
+        OnClick = LightAbsOutCheckBoxClick
+        State = cbChecked
+        TabOrder = 1
+      end
+      object PhotosynthOutCheckBox: TCheckBox
+        Left = 24
+        Height = 23
+        Top = 88
+        Width = 161
+        Caption = 'Photosynthesis details'
+        State = cbGrayed
+        TabOrder = 2
+      end
+      object LayersOutCheckBox: TCheckBox
+        Left = 24
+        Height = 23
+        Top = 64
+        Width = 103
+        Caption = 'Layer details'
+        TabOrder = 3
+      end
+    end
+  end
+  object OpenDialog1: TOpenDialog
+    Options = [ofHideReadOnly, ofPathMustExist, ofFileMustExist, ofEnableSizing]
+    left = 152
+    top = 72
+  end
+  object SaveDialog1: TSaveDialog
+    DefaultExt = '.xls'
+    Options = [ofOverwritePrompt, ofHideReadOnly, ofPathMustExist, ofCreatePrompt, ofNoReadOnlyReturn, ofEnableSizing]
+    left = 160
+    top = 216
+  end
+end

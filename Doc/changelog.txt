@@ -1,0 +1,48 @@
+1.1.0
+-Bl1, Bl2, Bl3 added to TSpecies and TSubPlot
+    -Default to r15, r45 r75
+-Bs1, Bs2, B23 added to TIndividual and TSubPlot
+    -Can be set via UpDowns in Form.
+-Added Multithreading for calculations.
+
+1.2.0
+-Bl1, Bl2 and Bl3 of Species can be set using updowns.
+
+1.2.1
+-Thickness removed from TPlot_p en TLayer (less reading in).
+-Removed entire interpolation of N_av values towards N_bot, because it did not
+  account for the possibility that the layer below it can have N_av=0.
+-Fixed: TPlotWB.readsubplots calculated F_cum[] wrongly.
+
+2.0.0
+-Fixed error in calculation date use: everything was calculated with date 197.
+-Date is written to output file.
+-Tooltip of the 'Overcast Day' checkbox: clarified overcast day definition.
+-Added collision detection to the UHashTable.
+-Hash table collisions are written to Remarks column in output file.
+-Options for leaf and radiation angles are disabled by default.
+-RENAME: Model and program are called StratiPHOLIAGE now.
+-In layer[i].R_dn calculation a division and a multiplication by the same
+ term was made: removed.
+
+2.0.1
+-Tooltips visible for 15s instead of 3.
+
+2.0.2
+-Fixed and cleaned up project with Delphi 6 (got messed up by newer Delphi version)
+  and recreated TChart.
+-GaussInt was changed to use Double instead of Real (from PHOLIAGE project perhaps),
+  fixed calc.pas to match that.
+
+3.0
+-Ported to Lazarus/FreePascal: now can be compiled on Linux, Windows, and more.
+  -fpspreadsheet replaces OLE+Excel for reading in data.
+    -Also supports .ods files now.
+  -Removed diagnostic graphing as this used Delphi TeeChart.
+-Fixed multiple memory leaks.
+-Simplified and cleaned up GUI code to ensure correct options are always used.
+-Added debug output with all GUI options when calculation is started ensure that
+  the expected options are indeed used when running a simulation.
+-Deal with individuals which (erroneously) have more layers than their subplot.
+-Removed About and Exit buttons.
+-Removed unused F_cum parameter from I_dir (also in doc).
