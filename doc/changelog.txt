@@ -46,3 +46,4 @@
 -Deal with individuals which (erroneously) have more layers than their subplot.
 -Removed About and Exit buttons.
 -Removed unused F_cum parameter from I_dir (also in doc).
+-Removed (Windows-specific) multithreading code.

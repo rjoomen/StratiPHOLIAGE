@@ -19,11 +19,11 @@
 *-Complete changelog
 
 *-Update about info
--Upload to github
+*-Upload to github
     -how does this work for the old exe files?
     -can they be releases?
 -Make longer readme
-    -document floating point issue
+    *-document floating point issue
 
 -Get multi-threaded to run
     -or just remove it

@@ -85,13 +85,7 @@ type
     Bevel7: TBevel;
     Bevel8: TBevel;
     Bevel9: TBevel;
-    RunMTButton: TButton;
-    Label26: TLabel;
-    Label27: TLabel;
     Bevel10: TBevel;
-    ThreadNoUpDown: TUpDown;
-    ThreadNoEdit: TEdit;
-    Label28: TLabel;
     RuntimeEdit: TEdit;
     Label29: TLabel;
     Label30: TLabel;
@@ -132,7 +126,6 @@ type
     procedure OvercastCheckBoxClick(Sender: TObject);
     procedure f_RdUpDownClick(Sender: TObject);
     procedure DisplayButtonClick(Sender: TObject);
-    procedure RunMTButtonClick(Sender: TObject);
     procedure f_RdEditChange(Sender: TObject);
     procedure AngleOptsCheckBoxClick(Sender: TObject);
   private
@@ -141,23 +134,6 @@ type
     procedure ResetOptions;
   public
     { Public declarations }
-  end;
-
-  TVersion = class
-    function Getversion: string;
-  end;
-
-  TCalcThread = class(TThread)
-  private
-    { Private declarations }
-  protected
-    ind: integer;
-    date: integer;
-    calculate: TCalc;
-    procedure sync;
-    procedure Execute; override;
-  public
-    constructor Create(CreateSuspended: boolean; i, d: integer); overload;
   end;
 
 var
@@ -182,12 +158,9 @@ var
   Output: TWriteExcel; // For saving the output
   Calculate: TCalc; // For calculating
 
-  ThreadList: TObjectList;
-  ThrSemaphore: Pointer;
-
   version: string;
 
-function TVersion.getVersion: string;
+function getVersion: string;
 var
   FileVerInfo: TFileVersionInfo;
   version: string;
@@ -206,16 +179,12 @@ begin
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
-var
-  ProgVersion: Tversion;
 begin
   Form1.PageControl1.ActivePageIndex := 0; // Select first TabSheet
   DataMemo.DoubleBuffered := True;
   Application.HintHidePause := 15000; // Make hints (tooltips) visible for 15s
 
-  ProgVersion := TVersion.Create; // Retrieve project version information
-  version := ProgVersion.GetVersion;
-  FreeAndNil(ProgVersion);
+  version := getVersion; // Retrieve project version information
 
   Form1.Caption := Form1.Caption + ' v.' + version;
 
@@ -585,122 +554,5 @@ procedure TForm1.ExitButtonClick(Sender: TObject);
 begin
   Application.Terminate;
 end;
-
-procedure TForm1.RunMTButtonClick(Sender: TObject);
-var
-  i, j: integer;
-  runtime: cardinal;
-  //madethread:boolean;
-
-  procedure makethread(nr: integer);
-  begin
-    ThreadList.Add(TCalcThread.Create(True, TIndividual(PlotM.Individual[nr]).hash, PlotM.doy));
-    TCalcThread(ThreadList.Items[ThreadList.Count - 1]).Calculate := TCalc.Create(PlotM, GDayUpDown.Position, GLayerUpDown.Position);
-    TCalcThread(ThreadList.Items[ThreadList.Count - 1]).Start;
-    //madethread:=true;
-  end;
-
-begin
-  runtime := GetTickCount64;
-  try { Finally statement below makes sure cursor gets back to normal }
-    RunMTButton.Enabled := False;
-    Screen.Cursor := crHourglass;
-
-    SetOptionsPlotM;
-
-    Form1.Tabsheet3.Enabled := True;
-    Form1.Tabsheet4.Enabled := True;
-
-    ProgressBar1.Max := PlotM.Individual.Count - 1;
-    ThreadList := TObjectList.Create;
-    ThreadList.OwnsObjects := True;
-    //ThrSemaphore:=CreateSemaphore(nil,ThreadNoUpDown.Position,ThreadNoUpDown.Position,'threadcnt');
-    ThrSemaphore := SemaphoreInit;
-    if ThrSemaPhore = Pointer(-1) then
-      exit;
-    i := 0;
-    repeat
-      //madethread:=false;
-      if ThreadList.Count = 0 then
-      begin
-        //if WaitForSingleObject(ThrSemaphore,10)=WAIT_OBJECT_0 then
-        SemaphoreWait(ThrSemaphore);
-        begin
-          makethread(i); // first thread
-          Inc(i);
-        end;
-      end
-      else
-      begin
-        // Test if threads are finished
-        //if WaitForSingleObject(ThrSemaphore,10)=WAIT_OBJECT_0 then
-        SemaphoreWait(ThrSemaphore);
-        // Thread is signaled
-        // Check for the finished thread
-        for j := 0 to ThreadList.Count - 1 do
-          if TCalcThread(ThreadList.Items[j]).ReturnValue = 1 then
-          begin
-            ThreadList.Delete(j);
-            makethread(i);
-            Inc(i);
-            Break;
-          end
-          else
-          if ThreadList.Count < ThreadNoUpDown.Position then
-          begin
-            makethread(i);
-            Inc(i);
-            Break;
-          end;
-      end;
-      ProgressBar1.Position := i - ThreadNoUpDown.Position;
-    until i > PlotM.Individual.Count - 1;
-
-    // Wait for threads to finalise
-    while ThreadList.Count > 0 do
-      for j := 0 to ThreadList.Count - 1 do
-        if TCalcThread(ThreadList.Items[j]).ReturnValue = 1 then
-        begin
-          ProgressBar1.Position := ProgressBar1.Position + 1;
-          ThreadList.Delete(j);
-          Break;
-        end;
-    ProgressBar1.Position := 0;
-  finally
-    FreeAndNil(ThreadList);
-    SemaphoreDestroy(ThrSemaphore);
-    RunMTButton.Enabled := True;
-    Screen.Cursor := crDefault;
-  end;
-  runtime := GetTickCount64 - RunTime;
-  RuntimeEdit.Text := IntToStr(round(runtime / 1000));
-end;
-
-{ TCalcThread }
-
-procedure TCalcThread.sync;
-begin
-  Application.MessageBox('fout', 'fout');
-end;
-
-procedure TCalcThread.Execute;
-begin
-  Calculate.Calc(ind, date);
-  //if not ReleaseSemaphore(ThrSemaphore,  // handle to semaphore
-  //                         1,             // increase count by one
-  //                         nil) then
-  SemaphorePost(ThrSemaphore);
-  //Synchronize(sync); // Error message
-  ReturnValue := 1;
-end;
-
-constructor TCalcThread.Create(CreateSuspended: boolean; i, d: integer);
-begin
-  ind := i;
-  date := d;
-  inherited Create(CreateSuspended);
-end;
-
-{ /TCalcThread }
 
 end.

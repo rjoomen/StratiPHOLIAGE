@@ -1,7 +1,7 @@
 object Form1: TForm1
-  Left = 914
+  Left = 868
   Height = 521
-  Top = 407
+  Top = 417
   Width = 841
   Caption = 'StratiPHOLIAGE'
   ClientHeight = 521
@@ -43,8 +43,8 @@ object Form1: TForm1
     Height = 505
     Top = 8
     Width = 825
-    ActivePage = TabSheet1
-    TabIndex = 0
+    ActivePage = OptionSheet
+    TabIndex = 1
     TabOrder = 0
     object TabSheet1: TTabSheet
       Caption = 'Open'
@@ -321,35 +321,11 @@ object Form1: TForm1
         Top = 80
         Width = 321
       end
-      object Label26: TLabel
-        Left = 560
-        Height = 14
-        Top = 392
-        Width = 185
-        Caption = 'Multithreaded execution (experimental!)'
-        ParentColor = False
-      end
-      object Label27: TLabel
-        Left = 568
-        Height = 14
-        Top = 408
-        Width = 182
-        Caption = '(for possible faster calculation process)'
-        ParentColor = False
-      end
       object Bevel10: TBevel
         Left = 536
         Height = 81
         Top = 392
         Width = 1
-      end
-      object Label28: TLabel
-        Left = 560
-        Height = 14
-        Top = 442
-        Width = 38
-        Caption = 'Threads'
-        ParentColor = False
       end
       object Label29: TLabel
         Left = 400
@@ -423,7 +399,7 @@ object Form1: TForm1
         Left = 16
         Height = 23
         Top = 56
-        Width = 190
+        Width = 156
         Caption = 'Calculate individual''s alpha'
         Checked = True
         State = cbChecked
@@ -434,7 +410,7 @@ object Form1: TForm1
         Height = 23
         Hint = 'If checked, diffuse light extinction is calculated using the vegetation k value specified in the data file. #13 If unchecked, the vegetation''s extinction is entirely calculated, depending on LAI'
         Top = 32
-        Width = 217
+        Width = 166
         Caption = 'Use vegetation k from data file'
         TabOrder = 5
       end
@@ -464,7 +440,7 @@ object Form1: TForm1
         Left = 16
         Height = 23
         Top = 88
-        Width = 197
+        Width = 140
         Caption = 'Overcast day .  .  .  .   Idif ='
         OnClick = OvercastCheckBoxClick
         TabOrder = 8
@@ -591,38 +567,6 @@ object Form1: TForm1
         TabOrder = 17
         Wrap = False
       end
-      object RunMTButton: TButton
-        Left = 672
-        Height = 41
-        Hint = 'Using multiple threads for calculation presumably only has use on multicore or multiprocessor machines.'
-        Top = 432
-        Width = 139
-        Caption = 'Run Multithreaded'
-        OnClick = RunMTButtonClick
-        TabOrder = 18
-      end
-      object ThreadNoUpDown: TUpDown
-        Left = 649
-        Height = 19
-        Top = 440
-        Width = 17
-        Associate = ThreadNoEdit
-        Min = 1
-        Position = 10
-        TabOrder = 19
-        Wrap = False
-      end
-      object ThreadNoEdit: TEdit
-        Left = 608
-        Height = 19
-        Top = 440
-        Width = 41
-        Alignment = taRightJustify
-        AutoSize = False
-        ReadOnly = True
-        TabOrder = 20
-        Text = '10'
-      end
       object RuntimeEdit: TEdit
         Left = 448
         Height = 19
@@ -636,7 +580,7 @@ object Form1: TForm1
         ParentBidiMode = False
         ParentFont = False
         ReadOnly = True
-        TabOrder = 21
+        TabOrder = 18
       end
       object f_RdEdit: TEdit
         Left = 176
@@ -646,16 +590,16 @@ object Form1: TForm1
         Alignment = taRightJustify
         AutoSize = False
         OnChange = f_RdEditChange
-        TabOrder = 22
+        TabOrder = 19
       end
       object AngleOptsCheckBox: TCheckBox
         Left = 352
         Height = 23
         Top = 72
-        Width = 267
+        Width = 209
         Caption = 'Enable leaf and radiation angle options'
         OnClick = AngleOptsCheckBoxClick
-        TabOrder = 23
+        TabOrder = 20
       end
       object Panel1: TPanel
         Left = 352
@@ -665,7 +609,7 @@ object Form1: TForm1
         BevelOuter = bvLowered
         ClientHeight = 91
         ClientWidth = 441
-        TabOrder = 24
+        TabOrder = 21
         object Label23: TLabel
           Left = 6
           Height = 14

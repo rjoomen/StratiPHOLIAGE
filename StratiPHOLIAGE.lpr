@@ -21,7 +21,6 @@ uses
 
 begin
   Application.Initialize;
-  Application.Title := 'StratiPHOLIAGE';
   Application.CreateForm(TForm1, Form1);
   Application.Run;
 end.
