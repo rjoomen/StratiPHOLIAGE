@@ -8,8 +8,12 @@ unit GaussInt;
 // implemented by Feike Schieving, University of Utrecht, 2002
 
 // modifications by Roelof Oomen
-// -all real types changed to double
+// -all <real types changed to double
 // -some variables renamed/clarified
+
+// 20170510 In setArgmAndWeightArray corrected assignment to
+//    number_N (between 3 and max_N), which was wrong (from
+//    correction in PHOLIAGE of 20090630).
 
 interface
 
@@ -81,11 +85,11 @@ var
 begin
   //.. keeping number of integration points between 3 and mx
   if nbGI < 3 then
-    number_N := 3;
-  if nbGI > max_N then
-    number_N := max_N;
-
-  number_N := nbGI;
+    number_N := 3
+  else if nbGI > max_N then
+    number_N := max_N
+  else
+    number_N := nbGI;
 
   //.. making the dynamic array's;
   //.. note that first element of  dynamic array has index zero
