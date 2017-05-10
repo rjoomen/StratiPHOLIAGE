@@ -31,8 +31,8 @@
 2.0.2
 -Fixed and cleaned up project with Delphi 6 (got messed up by newer Delphi version)
   and recreated TChart.
--GaussInt was changed to use Double instead of Real (from PHOLIAGE project perhaps),
-  fixed calc.pas to match that.
+-The GaussInt unit was changed to use Double instead of Real (from PHOLIAGE
+ project perhaps), fixed calc.pas to match that.
 
 3.0
 -Ported to Lazarus/FreePascal: now can be compiled on Linux, Windows, and more.
@@ -40,10 +40,15 @@
     -Also supports .ods files now.
   -Removed diagnostic graphing as this used Delphi TeeChart.
 -Fixed multiple memory leaks.
--Simplified and cleaned up GUI code to ensure correct options are always used.
--Added debug output with all GUI options when calculation is started ensure that
-  the expected options are indeed used when running a simulation.
+-Simplified and cleaned up GUI code to ensure options are  always used correctly.
+-Moved some GUI hints from the code to the form , as multi-line hints are
+ supported in Lazarus.
+-Added debug output (to console) with all GUI options when calculation is started.
 -Deal with individuals which (erroneously) have more layers than their subplot.
 -Removed About and Exit buttons.
 -Removed unused F_cum parameter from I_dir (also in doc).
 -Removed (Windows-specific) multithreading code.
+-Improved hash table collision error messages.
+-No more error when Save dialog is closed without saving.
+-Initial directories for Open and Save set to working directory.
+-Ported bug fix for edge cases in GaussInt from PHOLIAGE.
