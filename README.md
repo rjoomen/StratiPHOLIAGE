@@ -36,7 +36,7 @@ Model result differ slightly between Linux/Win32 builds and Win64 builds. The Li
 
 ## Running
 
-Binary releases are available under the 'releases' page.
+Binary releases are available under the [releases tab](https://github.com/rjoomen/StratiPHOLIAGE/releases).
 
 The [model documentation](doc/StratiPHOLIAGE_model.pdf) has some hints on program usage.
 
