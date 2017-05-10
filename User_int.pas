@@ -26,7 +26,7 @@ type
     OpenDialog1: TOpenDialog;
     SaveDialog1: TSaveDialog;
     PageControl1: TPageControl;
-    TabSheet1: TTabSheet;
+    FileOpenTabSheet: TTabSheet;
     Label1: TLabel;
     Label3: TLabel;
     Label4: TLabel;
@@ -73,9 +73,9 @@ type
     DisplayButton: TButton;
     GLayerEdit: TLabeledEdit;
     GLayerUpDown: TUpDown;
-    TabSheet3: TTabSheet;
+    ResultTabSheet: TTabSheet;
     ResultMemo: TMemo;
-    TabSheet4: TTabSheet;
+    FileSaveTabSheet: TTabSheet;
     Label9: TLabel;
     SaveButton: TButton;
     LightAbsOutCheckBox: TCheckBox;
@@ -187,17 +187,6 @@ begin
   version := getVersion; // Retrieve project version information
 
   Form1.Caption := Form1.Caption + ' v.' + version;
-
-  // These hints are set here, because Delphi's Object Inspector does not support multiline hints
-  File_kCheckBox.Hint := 'If checked, diffuse light extinction is' + #13 + 'calculated using the vegetation k value' +
-    #13 + 'specified in the data file (if available).' + #13 + 'If unchecked, the vegetation''s extinction' +
-    #13 + 'is entirely calculated, depending on LAI';
-
-  CalcAlphaCheckBox.Hint := 'If checked, the Alpha of the Individual is a function' + #13 +
-    'of Chlorophyl-content, otherwise Alpha is set to' + #13 + 'the plot Alpha value';
-
-  OvercastCheckBox.Hint := 'On an overcast day, the only incoming radiation is diffuse:' + #13 +
-    'A constant Idif light intensity above the vegetation and an I0dir of zero.';
 end;
 
 procedure TForm1.FileOpenButtonClick(Sender: TObject);
@@ -440,8 +429,8 @@ begin
     RunButton.Enabled := False;
     Screen.Cursor := crHourglass;
 
-    Form1.Tabsheet3.Enabled := True;
-    Form1.Tabsheet4.Enabled := True;
+    Form1.ResultTabsheet.Enabled := True;
+    Form1.FileSaveTabsheet.Enabled := True;
     Calculate := TCalc.Create(PlotM, GDayUpDown.Position, GLayerUpDown.Position);
 
     DebugLn('-- Running calculations --');
@@ -473,8 +462,8 @@ begin
   try { Finally statement below makes sure cursor gets back to normal }
     Screen.Cursor := crHourglass;
 
-    Form1.Tabsheet3.Enabled := True;
-    Form1.Tabsheet4.Enabled := True;
+    Form1.ResultTabsheet.Enabled := True;
+    Form1.FileSaveTabsheet.Enabled := True;
 
     Calculate := TCalc.Create(PlotM, GDayUpDown.Position, GLayerUpDown.Position);
     SetOptionsPlotM;
@@ -545,8 +534,9 @@ begin
   if SaveDialog1.Execute then
     Output.xlsname := SaveDialog1.FileName;
 
-  if not Output.Write then
-    MessageDlg('Error writing file: ' + Output.xlsname, mtInformation, [mbOK], 0);
+  if Output.xlsname <> '' then
+    if not Output.Write then
+      MessageDlg('Error writing file: ' + Output.xlsname, mtInformation, [mbOK], 0);
   FreeAndNil(Output);
 end;
 

@@ -1,7 +1,7 @@
 object Form1: TForm1
-  Left = 868
+  Left = 779
   Height = 521
-  Top = 417
+  Top = 461
   Width = 841
   Caption = 'StratiPHOLIAGE'
   ClientHeight = 521
@@ -43,10 +43,10 @@ object Form1: TForm1
     Height = 505
     Top = 8
     Width = 825
-    ActivePage = OptionSheet
-    TabIndex = 1
+    ActivePage = FileSaveTabSheet
+    TabIndex = 3
     TabOrder = 0
-    object TabSheet1: TTabSheet
+    object FileOpenTabSheet: TTabSheet
       Caption = 'Open'
       ClientHeight = 477
       ClientWidth = 815
@@ -398,6 +398,7 @@ object Form1: TForm1
       object CalcAlphaCheckBox: TCheckBox
         Left = 16
         Height = 23
+        Hint = 'If checked, the Alpha of the Individual is a function'#10'of Chlorophyl-content, otherwise Alpha is set to'#10'the plot Alpha value.'
         Top = 56
         Width = 156
         Caption = 'Calculate individual''s alpha'
@@ -408,7 +409,7 @@ object Form1: TForm1
       object File_kCheckBox: TCheckBox
         Left = 16
         Height = 23
-        Hint = 'If checked, diffuse light extinction is calculated using the vegetation k value specified in the data file. #13 If unchecked, the vegetation''s extinction is entirely calculated, depending on LAI'
+        Hint = 'If checked, diffuse light extinction '#10'is calculated using the vegetation k value '#10'specified in the data file (if available).'#10'If unchecked, the vegetation''s extinction'#10'is entirely calculated from LAI.'
         Top = 32
         Width = 166
         Caption = 'Use vegetation k from data file'
@@ -439,6 +440,7 @@ object Form1: TForm1
       object OvercastCheckBox: TCheckBox
         Left = 16
         Height = 23
+        Hint = 'On an overcast day, the only incoming radiation is diffuse:'#10'A constant Idif light intensity above the vegetation and an I0dir of zero.'
         Top = 88
         Width = 140
         Caption = 'Overcast day .  .  .  .   Idif ='
@@ -924,7 +926,7 @@ object Form1: TForm1
         end
       end
     end
-    object TabSheet3: TTabSheet
+    object ResultTabSheet: TTabSheet
       Caption = 'Results'
       ClientHeight = 477
       ClientWidth = 815
@@ -932,14 +934,15 @@ object Form1: TForm1
       ImageIndex = 2
       object ResultMemo: TMemo
         Left = 16
-        Height = 441
-        Top = 24
+        Height = 449
+        Hint = 'Click ''Display'' in the Model tab to run a simulation for a single tree.'
+        Top = 16
         Width = 281
         ScrollBars = ssVertical
         TabOrder = 0
       end
     end
-    object TabSheet4: TTabSheet
+    object FileSaveTabSheet: TTabSheet
       Caption = 'Save'
       ClientHeight = 477
       ClientWidth = 815

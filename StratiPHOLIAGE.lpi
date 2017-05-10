@@ -27,7 +27,7 @@
           <SearchPaths>
             <IncludeFiles Value="$(ProjOutDir)"/>
             <Libraries Value="/usr/lib/gcc/x86_64-redhat-linux/6.3.1/"/>
-            <UnitOutputDirectory Value="output"/>
+            <UnitOutputDirectory Value="output/$(BuildMode)/$(TargetCPU)-$(TargetOS)"/>
           </SearchPaths>
           <Parsing>
             <SyntaxOptions>
@@ -54,6 +54,10 @@
           <Other>
             <CustomOptions Value="-CF64
 -dUseCThreads"/>
+            <OtherDefines Count="2">
+              <Define0 Value="UseCThreads"/>
+              <Define1 Value="FPC_HAS_TYPE_EXTENDED"/>
+            </OtherDefines>
           </Other>
         </CompilerOptions>
       </Item2>
@@ -117,7 +121,7 @@
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
       <Libraries Value="/usr/lib/gcc/x86_64-redhat-linux/6.3.1/"/>
-      <UnitOutputDirectory Value="output"/>
+      <UnitOutputDirectory Value="output/$(BuildMode)/$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Parsing>
       <SyntaxOptions>

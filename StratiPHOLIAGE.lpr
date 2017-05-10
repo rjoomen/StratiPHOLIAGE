@@ -3,10 +3,6 @@ program StratiPHOLIAGE;
 {$MODE objfpc}{$H+}
 
 uses
-{$ifdef unix}
-  cthreads,
-  cmem,
-{$endif}
   Forms,
   Interfaces,
   User_int in 'User_int.pas' {Form1},
@@ -24,3 +20,4 @@ begin
   Application.CreateForm(TForm1, Form1);
   Application.Run;
 end.
+
